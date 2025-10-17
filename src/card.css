@@ -1,0 +1,128 @@
+/* Efecto al pasar el cursor (para escritorio) */
+.card:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta ligeramente */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%; /* La imagen ocupa todo el ancho de la tarjeta */
+  height: auto; /* Mantiene la proporción de la imagen */
+  display: block; /* Elimina espacios extra debajo de la imagen */
+}
+
+.card-title {
+  font-size: 1.5rem; /* Tamaño del título */
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card-button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+/* --- Media Query para pantallas más grandes (Responsive) --- */
+/* Se aplica en pantallas con un ancho mínimo de 768px (tablets y escritorios) */
+@media (min-width: 768px) {
+  .card {
+    /* En pantallas grandes, permitimos que varias tarjetas quepan en una fila */
+    /* Este ejemplo es para una sola tarjeta, pero si estuviera en un contenedor flex/grid,
+       se adaptaría al espacio asignado. */
+    width: 100%; /* La tarjeta ocupará el espacio que le dé su contenedor padre */
+    max-width: 400px; /* Un poco más grande en escritorio */
+  }
+}
+
+/* Card.css */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  width: 90%;
+  max-width: 600px;
+  overflow: hidden; /* Muy importante para que la animación funcione bien */
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  padding: 15px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-family: sans-serif;
+  color: #333;
+}
+
+.card-header span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #788492;
+}
+
+.card-content {
+  padding: 25px 30px; /* Un poco más de espaciado interno */
+  color: #4a4a4a;      /* Un gris oscuro, más suave que el negro puro */
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fuente legible */
+  font-size: 1rem;      /* 16px, un buen tamaño base */
+  line-height: 1.7;     /* Aumenta el espacio entre líneas para facilitar la lectura */
+  text-align: left;     /* Alineación a la izquierda estándar */
+  
+  /* Pequeños trucos para mejorar la renderización del texto */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Animación */
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Estilos para los elementos DENTRO del contenido */
+.card-content p {
+  margin-top: 0;
+  margin-bottom: 1rem; /* Espacio entre párrafos */
+}
+
+.card-content p:last-child {
+  margin-bottom: 0; /* Elimina el margen del último párrafo */
+}
+
+.card-content a {
+  color: #007bff; /* Usa tu color primario */
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+
+.card-content a:hover {
+  border-bottom: 2px solid #007bff;
+}
+
+/* Animación para que el contenido aparezca suavemente */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

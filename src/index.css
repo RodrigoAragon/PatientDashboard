@@ -1,0 +1,158 @@
+/* --- Variables y Estilos Globales (Mobile-First) --- */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita barras de scroll durante la animación */
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f2f5;
+}
+
+:root {
+    --primary-color: #3a86ff; /* Un azul profesional y calmado */
+    --secondary-color: #2a9d8f; /* Un verde azulado para acentos */
+    --light-gray-bg: #f8f9fa;
+    --dark-text: #343a40;
+    --light-text: #6c757d;
+    --white-color: #ffffff;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--dark-text);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--dark-text);
+    margin-top: 0;
+}
+
+/* --- Encabezado y Navegación --- */
+.main-header {
+    background-color: var(--white-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en móvil */
+}
+
+.logo {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    font-family: var(--font-heading);
+}
+
+.logo strong {
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.main-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--light-text);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* --- @@@ Media Queries para Responsive @@@ --- */
+
+/* --- Para Tablets (768px y más) --- */
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 3rem;
+    }
+    
+    .cards-container {
+        /* Crea una grilla de 3 columnas */
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .info-section, .hero {
+        text-align: left;
+    }
+}
+
+/* --- Para Escritorios (1024px y más) --- */
+@media (min-width: 1024px) {
+    body {
+        font-size: 16px; /* Aumentamos el tamaño base para mejor lectura */
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.25rem;
+    }
+}
+
+
+#loader-container {
+    position: fixed; /* Se queda fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% del ancho de la pantalla */
+    height: 100vh; /* 100% de la altura de la pantalla */
+    background-color: #ffffff;
+    z-index: 999; /* Se asegura de estar por encima de todo */
+    
+    /* La clave para centrar el loader: Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Transición para desaparecer suavemente */
+    transition: opacity 0.7s ease-out;
+}
+
+.loader {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 50px;
+  display: inline-grid;
+}
+.loader:before,
+.loader:after {
+  content:"Loading...";
+  grid-area: 1/1;
+  -webkit-mask:linear-gradient(90deg,#000 50%,#0000 0) 0 50%/2ch 100%;
+  animation: l11 1s infinite cubic-bezier(0.5,220,0.5,-220);
+}
+.loader:after {
+  -webkit-mask-position:1ch 50%;
+  --s:-1;
+}
+@keyframes l11 {100%{transform: translateY(calc(var(--s,1)*0.1%));}}

@@ -19,8 +19,34 @@
   transition: transform 0.2s ease-out, background-color 0.2s ease;
 }
 
+#favorite-floating-button {
+  /* La clave para fijar el botón */
+  position: fixed;
+  
+  /* Posicionamiento en la esquina superior derecha */
+  top: 80px;   /* Distancia desde el borde superior */
+  right: 20px;  /* Distancia desde el borde derecho */
+  
+  /* El resto de los estilos se mantienen igual */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 25px;
+  font-size: 16px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000; 
+  transition: transform 0.2s ease-out, background-color 0.2s ease;
+}
+
 /* Efecto al pasar el cursor por encima */
 #floating-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+#favorite-floating-button:hover {
   background-color: #0056b3;
   transform: translateY(-3px);
 }

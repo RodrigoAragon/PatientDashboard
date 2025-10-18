@@ -117,6 +117,10 @@
     box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); /* Sombra roja en foco */
 }
 
+.form-group p {
+    color: red;
+}
+
 /* Contador de caracteres */
 #char-counter-wrapper {
     text-align: right;

@@ -13,7 +13,7 @@ const fetchPatients = async () => {
     setPatients(response)
   } catch (e) {
     // Si hay algún error en el proceso, lo guardamos en el estado 'error'.
-    console.log(error)
+    console.log(e)
   } finally {
     setLoading(false);
   }
@@ -26,7 +26,7 @@ useEffect(() => {
   return (
     <>
       {
-        (loading) ? <LoadingScreen/> : <PatientsScreen patients={patients}/>
+        (loading) ? <LoadingScreen/> : <PatientsScreen patients={patients} setPatients = {setPatients}/>
       }
     </>
   )

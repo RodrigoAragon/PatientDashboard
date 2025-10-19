@@ -1,4 +1,4 @@
-import '../modal.css'
+import '../styles/modal.css'
 import "react-datepicker/dist/react-datepicker.css";
 import { useForm } from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup'

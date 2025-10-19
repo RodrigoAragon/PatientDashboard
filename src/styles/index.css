@@ -5,7 +5,7 @@ body, html {
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden; /* Evita barras de scroll durante la animación */
+    overflow-y: auto;
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f2f5;
 }
@@ -39,53 +39,6 @@ h1, h2, h3 {
     color: var(--dark-text);
     margin-top: 0;
 }
-
-/* --- Encabezado y Navegación --- */
-.main-header {
-    background-color: var(--white-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.main-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten en móvil */
-}
-
-.logo {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    font-family: var(--font-heading);
-}
-
-.logo strong {
-    font-weight: 600;
-    color: var(--dark-text);
-}
-
-.main-nav {
-    display: flex;
-    gap: 1.5rem;
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: var(--light-text);
-    font-weight: 700;
-    transition: color 0.3s ease;
-}
-
-.main-nav a:hover {
-    color: var(--primary-color);
-}
-
 /* --- @@@ Media Queries para Responsive @@@ --- */
 
 /* --- Para Tablets (768px y más) --- */
@@ -156,3 +109,48 @@ h1, h2, h3 {
   --s:-1;
 }
 @keyframes l11 {100%{transform: translateY(calc(var(--s,1)*0.1%));}}
+
+.loader-container-patients{
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loader-container-patients .loader-patients{
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.end-message {
+  text-align: center;
+  color: #888;
+  font-weight: bold;
+  padding: 20px;
+}
+
+.error-container{
+    position: fixed; /* Se queda fijo en la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw; /* 100% del ancho de la pantalla */
+    height: 100vh; /* 100% de la altura de la pantalla */
+
+    /* La clave para centrar el loader: Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+
+.error-container h1{
+    margin-top: 20px;
+}

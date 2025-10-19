@@ -1,8 +1,5 @@
-# React + Vite
+# Project Patient Record Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Challenge técnico. El proyecto consiste en crear una webapp donde se obtengan pacientes desde una API y se puedan crear o añadir a favoritos. En caso de esto ultimo, los favoritos se deben almacenas en el localStorage del navegador. Se creo utilizando React y Vite. Para los toast messages y el form del modal se utilizaron las libraries toast-react y react-hook-forms respectivamente.
+Este proyecto también ha sido subido a Netlify, se puede acceder a través del siguiente enlace:
+https://patient-dashboard-rod.netlify.app/

@@ -3,11 +3,11 @@ import '../styles/card.css'
 import { Modal } from './Modal'
 import toast from 'react-hot-toast'
 
-export const PatientCard = ({patient, setPatients, favorites, setFavorites}) => {
+export const PatientCard = ({patient, setPatients, favorites, setFavorites, setButtonShow}) => {
 
     const notify = () => toast.success('Patient edited successfully',{
         duration: 2000,
-        position: "top-right",
+        position: "top-left",
         style:{
             backgroundColor: 'lightgreen',
             color: 'black',
@@ -16,7 +16,7 @@ export const PatientCard = ({patient, setPatients, favorites, setFavorites}) => 
 
     const notifyError = () => toast.error('An error ocurred during the submitting process',{
         duration: 4000,
-        position: "top-right",
+        position: "top-left",
         style:{
             backgroundColor: 'coral',
             color: 'black',
@@ -25,7 +25,7 @@ export const PatientCard = ({patient, setPatients, favorites, setFavorites}) => 
     
     const notifyAddFavorite = () => toast.success('Patient added to Favorites',{
         duration: 2000,
-        position: "top-right",
+        position: "top-left",
         style:{
             backgroundColor: 'lightyellow',
             color: 'black',
@@ -35,7 +35,7 @@ export const PatientCard = ({patient, setPatients, favorites, setFavorites}) => 
 
     const notifyRemoveFavorite = () => toast.success('Patient removed from Favorites',{
         duration: 2000,
-        position: "top-right",
+        position: "top-left",
         style:{
             backgroundColor: 'lightblue',
             color: 'black',
@@ -47,10 +47,12 @@ export const PatientCard = ({patient, setPatients, favorites, setFavorites}) => 
     const [isOpenModalEdit, setOpenModalEdit] = useState(false)
     const handleClick = () =>{
         setOpenModalEdit(true)
+        setButtonShow(false)
     }
 
     const handleClose = () =>{
         setOpenModalEdit(false)
+        setButtonShow(true)
     }
 
     const toggleCard = () =>{
@@ -72,6 +74,7 @@ export const PatientCard = ({patient, setPatients, favorites, setFavorites}) => 
                 p => p.id === newEditPatient.id? {...newEditPatient} : p
             ))
             setOpenModalEdit(false)
+            setButtonShow(true)
             notify()
         } catch (error) {
             console.log(error)

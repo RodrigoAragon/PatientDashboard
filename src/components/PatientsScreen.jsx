@@ -9,7 +9,7 @@ export const PatientsScreen = ({patients, setPatients}) => {
 
     const notify = () => toast.success('New patient added successfully',{
         duration: 2000,
-        position: "top-right",
+        position: "top-left",
         style:{
             backgroundColor: 'lightgreen',
             color: 'black',
@@ -18,7 +18,7 @@ export const PatientsScreen = ({patients, setPatients}) => {
 
     const notifyError = () => toast.error('An error ocurred during the submitting process',{
         duration: 4000,
-        position: "top-right",
+        position: "top-left",
         style:{
             backgroundColor: 'coral',
             color: 'black',
@@ -131,14 +131,14 @@ export const PatientsScreen = ({patients, setPatients}) => {
 
         {
            !viewFavorites &&
-           <button id="favorite-floating-button" onClick={handleClickFavorites}>
+           <button id="favorite-floating-button" onClick={handleClickFavorites} hidden={!buttonShow}>
                 View only favorites
             </button>
         }
 
         {
            viewFavorites &&
-           <button id="favorite-floating-button" onClick={handleClickFavorites}>
+           <button id="favorite-floating-button" onClick={handleClickFavorites} hidden={!buttonShow}>
                 View all
             </button>
         }
@@ -158,7 +158,8 @@ export const PatientsScreen = ({patients, setPatients}) => {
                     patient={patient}
                     setPatients={setPatients}
                     setFavorites={setFavorites}
-                    favorites={favorites}          
+                    favorites={favorites}   
+                    setButtonShow={setButtonShow}       
                     />
                 ))}
 
@@ -196,7 +197,8 @@ export const PatientsScreen = ({patients, setPatients}) => {
                         patient={patient}
                         setPatients={setFavorites}
                         setFavorites={setFavorites}
-                        favorites={favorites}          
+                        favorites={favorites}
+                        setButtonShow={setButtonShow}          
                     />
                 ))}
             </div>

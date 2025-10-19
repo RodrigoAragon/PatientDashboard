@@ -175,7 +175,7 @@ export const PatientsScreen = ({patients, setPatients}) => {
             }
 
             {
-                !hasMore && !loading && <p className="end-message">No hay más pacientes para mostrar</p>
+                !hasMore && !loading && <p className="end-message">There are no more patients to show</p>
             }
         
             </>
